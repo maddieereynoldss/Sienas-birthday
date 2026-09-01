@@ -1,0 +1,299 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px;
+    background: #f8f5f2;
+
+    font-family: "DM Sans", sans-serif;
+    color: #3d3636;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Pacifico", cursive;
+    font-size: 42px;
+    margin-bottom: 40px;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.card {
+    width: 4.25in;
+    min-height: 5.5in;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    position: relative;
+    page-break-inside: avoid;
+}
+
+/* COLORS */
+
+.pink {
+    background: #f9dfe5;
+}
+
+.blue {
+    background: #dcecf4;
+}
+
+.orange {
+    background: #F4C6A1;
+}
+.green {
+    background: #dfeade;
+}
+
+.black {
+    background: black;
+    color: red;
+}
+
+.cyan {
+    background: #A6DCE8;
+}
+
+.brown {
+    background: #CFA27C ;
+}
+
+.lemon {
+    background: #F3E7A6;
+}
+
+.hotpink {
+    background: #fe05d5;
+}
+
+.teal {
+    background: #8DD8D0;
+}
+
+.gray {
+    background: #6B6B6B;
+    color: #F7E8C3;
+}
+
+.peach {
+    background: #F29B82;
+}
+
+.navy {
+    background: #243B5A;
+    color: white;
+}
+
+.lime {
+    background: #C8D96B;
+}
+
+.oceanblue {
+    background: #7DDFF2;
+    color: rgb(150, 91, 2);
+    
+}
+
+.dusty {
+    background: #E9B8C5;
+}
+
+.coral {
+    background: #D98A7A;
+}
+
+
+.mauve {
+    background: #C9B8D8;
+}
+
+.rose {
+    background: #CFA9A9;
+    color: #FFF7ED;
+}
+
+
+.dust {
+    background: #D9A9A0;
+}
+
+
+.letter {
+    background: #BFC7D9;
+}
+
+.softpink {
+    background: #F3B6C8;
+}
+
+.sand {
+    background: #F0C9A8;
+}
+
+.yellow {
+    background: #FFF4B8;
+}
+
+.fuschia {
+    background: #FF00FF;
+}
+
+.warmorange {
+    background: #C65D21;
+}
+
+.vibrantblue {
+    background: #38BDF8;
+}
+
+.peachypink {
+    background: #F8C8C8;
+}
+/* DAY NUMBER */ 
+
+.day {
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    opacity: .65;
+}
+
+/* TITLE */
+
+.card h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 5px 0 20px;
+}
+
+/* PHOTO */
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+/* TEXT */
+
+.card p {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    line-height: 1.45;
+    margin: 12px 0;
+}
+
+/* SIGNATURE */
+
+.signature {
+    margin-top: 25px;
+    font-family: "Pacifico", cursive;
+    font-size: 18px;
+}
+
+/* PRINT SETTINGS */ 
+
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    h1 {
+        display: none;
+    
+    }
+
+    .card-container {
+        display: block;
+    }
+
+    .card {
+        width: 4.25in;
+        height: 5.5in;
+
+        margin: 0.25in;
+        box-shadow: none;
+        break-inside: avoid;
+
+        page-break-inside: avoid;
+    }
+}
+
+@media print {
+
+    @page {
+        size: letter landscape;
+        margin: 0.25in;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        display: none; /* Don't waste space printing the title */
+    }
+
+    body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.15in;
+    }
+
+    .card {
+        width: 100%;
+        height: 4.9in;
+        box-sizing: border-box;
+
+        /* Prevent cards from splitting between pages */
+        break-inside: avoid;
+        page-break-inside: avoid;
+
+        /* Optional: makes cutting easier */
+        border: 1px dashed #999;
+
+        padding: 0.2in;
+        margin: 0;
+    }
+
+    .card img {
+        max-height: 2.3in;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .day {
+        font-size: 14pt;
+    }
+
+    h2 {
+        font-size: 16pt;
+        margin: 0.1in 0;
+    }
+
+    p {
+        font-size: 10pt;
+        margin: 0.1in 0;
+    }
+
+    .signature {
+        font-size: 10pt;
+    }
+
+}
