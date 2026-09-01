@@ -204,6 +204,45 @@ h1 {
     font-size: 18px;
 }
 
+/* LOCKED FUTURE DAYS */
+
+.locked {
+    overflow: hidden;
+    cursor: not-allowed;
+}
+
+.locked > * {
+    filter: blur(8px);
+    opacity: 0.18;
+    user-select: none;
+}
+
+.locked::after {
+    content: "🔒\A\A DAY " attr(data-day) " IS LOCKED\A\A Come back on " attr(data-unlock);
+    white-space: pre-line;
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(3px);
+
+    z-index: 10;
+}
+
 /* PRINT SETTINGS */ 
 
 @media print {

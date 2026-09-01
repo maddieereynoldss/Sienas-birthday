@@ -410,20 +410,29 @@
     today.setHours(0, 0, 0, 0);
 
     const millisecondsPerDay = 1000 * 60 * 60 * 24;
-    const daysPassed = Math.floor(
-        (today - startDate) / millisecondsPerDay
-    );
-
-    const unlockedDay = daysPassed + 1;
 
     document.querySelectorAll(".birthday-card").forEach(card => {
         const cardDay = Number(card.dataset.day);
 
-        if (cardDay > unlockedDay) {
-            card.style.display = "none";
+        // Calculate the date this card unlocks
+        const unlockDate = new Date(startDate);
+        unlockDate.setDate(startDate.getDate() + cardDay - 1);
+
+        // Add readable unlock date
+        const formattedDate = unlockDate.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric"
+        });
+
+        card.dataset.unlock = formattedDate;
+
+        // Lock cards whose date hasn't arrived yet
+        if (today < unlockDate) {
+            card.classList.add("locked");
         }
     });
 </script>
+
 
 
 
